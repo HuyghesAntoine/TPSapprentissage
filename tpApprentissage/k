@@ -1,0 +1,32 @@
+public static double rechercheUCB(int nbIterations, Manchot[] manchot){
+        int[] nbTiragesBras;
+        double[] sommeBras;
+        int i = 0;
+        double ucb ; 
+
+        for(i = 0; i<manchot.length; i++){
+            nbTiragesBras = 1;
+            sommeBras[i] += manchot.tirerBras();
+        }
+        for(int j=i; j<nbIterations-manchot.length; j++){
+            double[] ucb = new double[manchot.lenght]; 
+
+            for(in j=0; j<manchot.length; j++)
+                ucb = sommeBras[i] + k * Math.log(nbIterations) / nbTiragesBras[i];
+
+            double bestuccb = ucb[0];
+            int bestIndex = 0;
+            for(int j=0; j<manchot.lenght; j++){
+                if(bestucb < ucb[j]){
+                    bestucb = ucb[j];
+                    bestIndex = j;
+                }
+            }
+            sommeBras[bestIndex] += manchot[bestIndex].tirerBras();
+            nbTiragesBras[bestIndex] += 1;
+        }
+        double total = 0;
+        for(double gain:sommeBras)
+            total += gain;
+        return total;
+    }
